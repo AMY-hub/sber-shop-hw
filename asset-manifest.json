@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/sber-shop-hw/static/css/main.149a849d.css",
+    "main.js": "/sber-shop-hw/static/js/main.2fbc10de.js",
+    "static/media/logo.svg": "/sber-shop-hw/static/media/logo.4f9d699de55eb25e196ecc4c87a15a5e.svg",
+    "static/media/instagram.svg": "/sber-shop-hw/static/media/instagram.54cbf40d1b69370b6a2ec029eefc269c.svg",
+    "static/media/vk.svg": "/sber-shop-hw/static/media/vk.5a6b12bf142f67e2138c1e6c69952975.svg",
+    "static/media/viber.svg": "/sber-shop-hw/static/media/viber.b4234cd18a8ffefb8ebb172506996cea.svg",
+    "static/media/pet.svg": "/sber-shop-hw/static/media/pet.ae6d9e87ac7ba52774fd4a3001b7b1aa.svg",
+    "static/media/whatsapp.svg": "/sber-shop-hw/static/media/whatsapp.51cbd71440eaa90946070b8848c12129.svg",
+    "static/media/notfound.svg": "/sber-shop-hw/static/media/notfound.2c252d16f18118d22833d1b995ba0234.svg",
+    "static/media/save.svg": "/sber-shop-hw/static/media/save.4ecce3f76a425b9cc334007a294e0108.svg",
+    "static/media/ic-close-input.svg": "/sber-shop-hw/static/media/ic-close-input.54db44869b83261dae0b721cf5826a4b.svg",
+    "static/media/ic-search.svg": "/sber-shop-hw/static/media/ic-search.9da1e3f9e0d0d0b38f3c1ac2041e5f49.svg",
+    "static/media/telegram.svg": "/sber-shop-hw/static/media/telegram.95a5ca8a1ae0a13c18da2bca3f249bf5.svg",
+    "index.html": "/sber-shop-hw/index.html",
+    "static/media/arr_left.svg": "/sber-shop-hw/static/media/arr_left.9674ad7faa8885516fff34868ab9c826.svg",
+    "static/media/arr_right.svg": "/sber-shop-hw/static/media/arr_right.ef12a8fb7d9afeda465870de2728761e.svg",
+    "main.149a849d.css.map": "/sber-shop-hw/static/css/main.149a849d.css.map",
+    "main.2fbc10de.js.map": "/sber-shop-hw/static/js/main.2fbc10de.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.149a849d.css",
+    "static/js/main.2fbc10de.js"
+  ]
+}

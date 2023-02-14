@@ -1,0 +1,1 @@
+export const isProductLiked = (likes: string[], userId: string): boolean => likes.some(id => id === userId);

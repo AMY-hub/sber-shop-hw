@@ -2,10 +2,18 @@ import { createContext, PropsWithChildren, useEffect, useState, useContext } fro
 import { API } from '../api/api';
 import { CurrentUser, Product } from '../types/common';
 
+type PriceFilter = 'high' | 'low' | null;
+
+interface Filters {
+    price: PriceFilter;
+}
+
 type UserState = [CurrentUser, (user: CurrentUser) => void];
 type ProductsState = [Product[], (products: Product[]) => void];
 type ProductsCountState = [number, (count: number) => void];
 type PageState = [number, React.Dispatch<React.SetStateAction<number>>];
+type FiltersState = [Filters, React.Dispatch<React.SetStateAction<Filters>>];
+type PriceFiltersState = [PriceFilter, (value: PriceFilter) => void];
 
 interface IAppContext {
     user: UserState[0];
@@ -17,6 +25,8 @@ interface IAppContext {
     setProductsCount: ProductsCountState[1];
     currentPage: PageState[0];
     setCurrentPage: PageState[1];
+    filters: FiltersState[0];
+    setFilters: FiltersState[1]
     productsPerPage: number;
     loading: boolean;
 }
@@ -33,6 +43,10 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [loading, setLoading] = useState<boolean>(false);
     const [user, setUser] = useState<CurrentUser>(null);
+
+    const [filters, setFilters] = useState<Filters>({
+        price: null
+    });
     
     useEffect(() => {
         setLoading(true);
@@ -40,7 +54,7 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
             .then(([productsData, userData]) => {
                 setUser(userData);
                 setProducts(productsData.products);
-                setProductsCount(productsData.total);
+                setProductsCount(productsData.products.length);
             })
             .catch(err => console.log(err))
             .finally(() => setLoading(false));
@@ -53,6 +67,28 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
         setVisibleProducts(currentProducts);
     }, [currentPage, productsCount, products]);
 
+    useEffect(() => {
+        if(filters.price === 'low') {
+            products.sort((a, b) => {
+                const a_discount_price = Math.round(a.price - a.price * a.discount / 100);
+                const b_discount_price = Math.round(b.price - b.price * b.discount / 100);
+                return a_discount_price - b_discount_price;
+            });
+            setProducts([...products]);
+        }
+
+        if (filters.price === 'high') {
+            products.sort((a, b) => {
+                const a_discount_price = Math.round(a.price - a.price * a.discount / 100);
+                const b_discount_price = Math.round(b.price - b.price * b.discount / 100);
+                return b_discount_price - a_discount_price;
+            });
+            setProducts([...products]);
+        }
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [filters.price]);
+
     return (
         <AppContext.Provider value={{
             user,
@@ -64,6 +100,8 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
             setProductsCount,
             currentPage,
             setCurrentPage,
+            filters,
+            setFilters,
             productsPerPage,
             loading
         }}>
@@ -100,4 +138,13 @@ export const usePage = (): PageState => {
 export const useLoadingState = (): boolean => {
     const { loading } = useContext(AppContext);
     return loading;
+};
+
+export const usePriceFilter = (): PriceFiltersState => {
+    const { filters, setFilters } = useContext(AppContext);
+
+    return [
+        filters.price, 
+        (value: PriceFilter): void => setFilters({...filters, price: value})
+    ];
 };

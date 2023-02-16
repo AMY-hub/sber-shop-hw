@@ -7,3 +7,4 @@ export { Logo } from './Logo';
 export { SearchInfo } from './SearchInfo';
 export { Search } from './Search';
 export { Preloader } from './Preloader';
+export { SortPanel } from './SortPanel';

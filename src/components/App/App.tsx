@@ -3,13 +3,14 @@ import { useState, useEffect, FormEventHandler, useCallback } from 'react';
 import { API } from '../../api/api';
 import { CardList, Footer, Header, Logo, Preloader, Search, SearchInfo } from '..';
 import { useDebouncedValue } from '../../hooks/useDebouncedValue';
-import { useLoadingState, usePage, useProducts, useProductsCount } from '../../context/AppContext';
+import { useLoadingState, usePage, usePriceFilter, useProducts, useProductsCount } from '../../context/AppContext';
 
 export default function App(): JSX.Element {
    
     const [_, setProducts] = useProducts();
     const [__, setProductsCount] = useProductsCount();
     const [___, setCurrentPage] = usePage();
+    const [____, setPriceFilter] = usePriceFilter();
     const loading = useLoadingState();
     const [searchQuery, setSearchQuery] = useState<string>('');
     const debouncedSearchQuery = useDebouncedValue(searchQuery);
@@ -34,6 +35,7 @@ export default function App(): JSX.Element {
     const onSearchInput: FormEventHandler<HTMLInputElement> = (e): void => {
         setSearchQuery((e.target as HTMLInputElement).value);
         setCurrentPage(1);
+        setPriceFilter(null);
     };
 
     useEffect(() => {

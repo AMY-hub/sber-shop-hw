@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Card } from '..';
+import { Card, SortPanel } from '..';
 import { useProducts, useProductsToShow, useUserData } from '../../context/AppContext';
 import { CardListProps } from './props';
 import { isProductLiked } from '../../helpers/helpers';
@@ -37,6 +37,7 @@ export const CardList: React.FC<CardListProps> = ({ className, ...rest}) => {
 		<NoProducts />
 		:
 		<>
+			<SortPanel />
 			<div className={cn(s.cards, className)} {...rest}>
 				{
 					visibleProducts.map(product => (

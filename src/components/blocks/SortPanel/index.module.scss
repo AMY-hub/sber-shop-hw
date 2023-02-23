@@ -1,0 +1,19 @@
+.sort {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 1rem;
+}
+
+.sort__btn {
+	margin-right: 1rem;
+	transition: background-color 300ms;
+}
+
+.sort__btn:last-child {
+	margin-right: 0;
+}
+
+.sort__btn_active {
+	background-color: #FFE44D;
+}

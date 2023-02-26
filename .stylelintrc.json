@@ -1,6 +1,6 @@
 {
     "extends": [
-        "stylelint-config-standard",
+        "stylelint-config-standard-scss",
         "stylelint-config-property-sort-order-smacss"
     ],
     "plugins": [
@@ -12,9 +12,8 @@
         ],
         "color-hex-case": "upper",
         "selector-class-pattern": null,
+        "selector-id-pattern": null,
+        "custom-property-pattern": null,
         "declaration-block-no-redundant-longhand-properties": null
-    },
-    "ignoreFiles": [
-        "build/static/css/*.css"
-    ]
+    }
 }

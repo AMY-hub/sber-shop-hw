@@ -1,64 +1,70 @@
+@import "../../../styles/mixins";
+
 .search {
 	display: flex;
 	position: relative;
 	flex: 1;
 	align-items: center;
-}
 
-.search__input {
-	width: 100%;
-	padding: 10px 60px 10px 20px;
-	border: 1px solid transparent;
-	border-radius: 24px;
-	outline: none;
-	color: #000;
-	font-size: 16px;
-	line-height: 20px;
-	caret-color: #FEBA0C;
-}
+	&__input {
+		width: 100%;
+		padding: 0.8rem 1.2rem;
+		padding-right: 5rem;
+		transition: background-color var(--base-transition-time);
+		border: 1px solid var(--primary);
+		border-radius: var(--button-border-radius);
+		color: var(--text-dark);
+		caret-color: var(--primary);
 
-.search__input:focus {
-	border: 1px solid #FED700;
-	background: #FFF;
-}
+		&:focus {
+			background-color: var(--primary-transparent);
+		}
 
-.search__input::placeholder {
-	color: #7B8E98;
-}
+		&::placeholder {
+			color: var(--text-pale);
+		}
 
-.search__btns {
-	display: flex;
-	position: absolute;
-	right: 20px;
-	padding: 0;
-}
+		@include media-breakpoint-down(xs) {
+			max-width: 400px;
+		}
+	}
 
-.search__btn {
-	border: none;
-	outline: none;
-	background-color: transparent;
-	cursor: pointer;
-}
+	&__btns {
+		display: flex;
+		position: absolute;
+		top: 25%;
+		right: 1.5rem;
+		width: 2.5rem;
+		padding: 0;
+	}
 
-.search__btn svg {
-	transition: fill 300ms;
-	fill: #7B8E98;
-}
+	&__btn {
+		width: 1rem;
+		height: 1rem;
+		border: none;
+		outline: none;
+		background-color: transparent;
+		cursor: pointer;
 
-.search__btn_disabled svg {
-	fill: #CFD8DC;
-}
+		&:not(:last-child) {
+			margin-right: 0.5rem;
+		}
 
-.search__btn:focus svg {
-	fill: #FEBA0C;
-}
+		svg {
+			transition: fill 300ms;
+			fill: var(--text-pale);
+		}
 
-.search__btn:hover svg {
-	fill: #FEBA0C;
-}
+		&_disabled svg {
+			fill: var(--text-pale);
+		}
 
-@media (max-width: 350px) {
-	.search__input {
-		max-width: 400px;
+		&:focus svg {
+			fill: var(--primary);
+		}
+
+		&:hover svg {
+			fill: var(--primary);
+		}
 	}
 }

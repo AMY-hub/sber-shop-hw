@@ -3,7 +3,7 @@ import { ButtonProps } from './props';
 
 import s from './index.module.scss';
 
-export const Button: React.FC<ButtonProps> = ({ type='primary', children, className, ...rest }) => {
+export const Button: React.FC<ButtonProps> = ({ type='fill-primary', children, className, ...rest }) => {
     
   return (
     <button className={ cn(s.button, s[type], className)} {...rest}>

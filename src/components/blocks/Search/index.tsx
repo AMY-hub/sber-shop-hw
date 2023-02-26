@@ -24,14 +24,19 @@ export const Search:React.FC<SearchProps> = ({searchQuery, setSearchQuery, onSea
         value={searchQuery}
         onInput={onSearchInput}/>
         <div className={cn(s.search__btns)}>
-          <button className={cn(s.search__btn)} onClick={onClearClick}>
+          <button 
+          aria-label='искать'
+          className={cn(s.search__btn)} 
+          onClick={onClearClick}>
               <CloseIcon />
           </button>
-          <button className={cn(s.search__btn)} type='submit'>
+          <button 
+          aria-label='очистить поле поиска'
+          className={cn(s.search__btn)} 
+          type='submit'>
             <SearchIcon />
           </button>          
         </div>
-
    </form>
   );
 };

@@ -1,31 +1,31 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect, FormEventHandler, useCallback } from 'react';
+import cn from 'classnames';
+import { FormEventHandler, useCallback, useEffect, useState } from 'react';
+import { CardList, NoProducts, Search, SortPanel } from '../..';
 import { API } from '../../../api/api';
-import { CardList, Preloader, Search, SearchInfo } from '../..';
+import { usePage, usePriceFilter, useProducts, useProductsCount, useProductsToShow } from '../../../context/AppContext';
 import { useDebouncedValue } from '../../../hooks/useDebouncedValue';
-import { useLoadingState, usePage, usePriceFilter, useProducts, useProductsCount } from '../../../context/AppContext';
 
-export const Main = (): JSX.Element => {
-   
+import s from './index.module.scss';
+
+export const Catalog: React.FC = () => {
+
+    const visibleProducts = useProductsToShow();
     const [_, setProducts] = useProducts();
     const [__, setProductsCount] = useProductsCount();
     const [___, setCurrentPage] = usePage();
     const [____, setPriceFilter] = usePriceFilter();
-    const loading = useLoadingState();
     const [searchQuery, setSearchQuery] = useState<string>('');
     const debouncedSearchQuery = useDebouncedValue(searchQuery);
 
-    const handleSearchRequest = useCallback(
-        (): void => {
+    const handleSearchRequest = useCallback(() => {
             API.search(debouncedSearchQuery)
                 .then((searchedProducts) => {
                     setProducts(searchedProducts);
                     setProductsCount(searchedProducts.length);
                 })
                 .catch(err => console.log(err));
-        },
-        [debouncedSearchQuery, setProducts, setProductsCount]
-    );
+        },[debouncedSearchQuery, setProducts, setProductsCount]);
 
     const onSearchSubmit: FormEventHandler<HTMLFormElement> = (e): void => {
         e.preventDefault();
@@ -43,21 +43,21 @@ export const Main = (): JSX.Element => {
     }, [debouncedSearchQuery, handleSearchRequest]);
 
     return (
-        loading ? 
-        <Preloader/>
-        :
-        <>
-            <main className='content container'>
-                    <Search
-                        setSearchQuery={setSearchQuery}
-                        searchQuery={searchQuery}
-                        onSearchSubmit={onSearchSubmit}
-                        onSearchInput={onSearchInput} />
-                <SearchInfo searchText={searchQuery} />
-                <div className='content__cards'>
-                    <CardList />
+        <section className={cn(s.catalog)}>
+            <>
+                <div className={cn(s.catalog__panel)}>
+                  <SortPanel />  
+                  <Search 
+                    className={cn(s.catalog__search)}
+                    searchQuery={searchQuery}
+                    setSearchQuery={setSearchQuery}
+                    onSearchSubmit={onSearchSubmit}
+                    onSearchInput={onSearchInput} />
                 </div>
-            </main>
-        </>
+                {visibleProducts.length === 0 ?
+                    <NoProducts />
+                    : <CardList />}
+            </>
+        </section>
     );
 };

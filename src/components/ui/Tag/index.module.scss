@@ -1,0 +1,20 @@
+.tag {
+	margin-right: 5px;
+	padding: 0.3rem 0.8rem;
+	border-radius: var(--tab-border-radius);
+	background-color: var(--accent1);
+	color: var(--text-light);
+	font-weight: 600;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.new {
+	background-color: var(--accent2);
+}
+
+.sale {
+	background-color: var(--accent3);
+}

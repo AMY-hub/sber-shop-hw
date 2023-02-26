@@ -1,6 +1,7 @@
 import cn from 'classnames';
-import { Button } from '../..';
+import { Panel } from '../..';
 import { usePriceFilter } from '../../../context/AppContext';
+import { PriceFilterParams } from '../../../types/common';
 
 import s from './index.module.scss';
 
@@ -8,26 +9,17 @@ export const SortPanel:React.FC = () => {
 
 	const [priceFilter, setPriceFilter] = usePriceFilter();
 
+	const filterOptions = {
+		'price-asc': 'Сначала дешевые',
+		'price-desc': 'Сначала дорогие'
+	};
+
 	return (
 		<div className={cn(s.sort)}>
-			<Button 
-				type='secondary'
-				className={cn(s.sort__btn, {
-					[s.sort__btn_active]: priceFilter === 'low'
-				})}
-				onClick={(): void => setPriceFilter('low')}
-			>
-				Сначала дешевые
-			</Button>
-			<Button 
-				type='secondary'
-				className={cn(s.sort__btn, {
-					[s.sort__btn_active]: priceFilter === 'high'
-				})}
-				onClick={(): void => setPriceFilter('high')}
-				>
-				Сначала дорогие
-			</Button>
+			<Panel 
+			options={filterOptions}
+			currentOption={priceFilter}
+			onOptionSelect={(option: PriceFilterParams) => setPriceFilter(option)} />
 		</div>
 	);
 };

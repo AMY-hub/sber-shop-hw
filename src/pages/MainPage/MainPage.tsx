@@ -1,8 +1,15 @@
 import React from 'react';
-import { Main } from '../../components';
+import { Catalog, Preloader } from '../../components';
+import { useLoadingState } from '../../context/AppContext';
 
 export const MainPage:React.FC = () => {
+
+    const loading = useLoadingState();
+
   return (
-    <Main />
-  );
+      loading ?
+        <Preloader />
+        :
+        <Catalog />
+    );
 };

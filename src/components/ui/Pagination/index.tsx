@@ -2,8 +2,8 @@ import cn from 'classnames';
 import { PaginationProps } from './props';
 import { usePaginationRange } from './usePaginationRange';
 import { AppContext } from '../../../context/AppContext';
-import { ReactComponent as PrevIcon } from './arr_left.svg';
-import { ReactComponent as NextIcon } from './arr_right.svg';
+import { ReactComponent as PrevIcon } from '../../../assets/icons/arr_left.svg';
+import { ReactComponent as NextIcon } from '../../../assets/icons/arr_right.svg';
 
 import s from "./index.module.scss";
 import { useContext } from 'react';

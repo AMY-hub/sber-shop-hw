@@ -1,4 +1,89 @@
-$main-font: Nunito,
-Arial,
-Helvetica,
-sans-serif;
+@use "sass:map";
+
+@function vw($value, $base: fhd) {
+	@return calc($value / map-get($breakpoints, $base) * 100vw);
+}
+
+@function rem($size, $root-font-size: 16) {
+	@return unit($size, $root-font-size) * 1rem;
+}
+
+$breakpoints: (
+	xs: 400,
+	sm: 560,
+	s: 768,
+	md: 880,
+	lg: 1024,
+	xl: 1280,
+	xxl: 1440,
+	xxxl: 1600,
+	fhd: 1920,
+);
+
+:root {
+	--base-transition-time: 300ms;
+	--section-border-radius: 34px;
+	--button-border-radius: 55px;
+	--tab-border-radius: 18px;
+	--card-border-radius: 10px;
+	--main-font:
+		nunito,
+		arial,
+		helvetica,
+		sans-serif;
+
+	// COLORS:
+	--primary: #E47C41;
+	--primary-pale: #F0935D;
+	--primary-light: #F8EEE3;
+	--primary-transparent: rgb(254 151 91 / 5%);
+	--secondary: #40987F;
+	--secondary-transparent: rgb(33 176 107 / 5%);
+	--secondary-dark: #25704C;
+	--secondary-pale: #6FB694;
+	--text-light: #FCFCFC;
+	--text-dark: #302623;
+	--text-pale: #7B9398;
+	--bg1: #FAF9F6;
+	--gray-light: #ECF1F1;
+	--gray: #C9D0D2;
+	--accent1: #FD5748;
+	--accent2: #04A497;
+	--accent3: #FFAA0D;
+
+	$xs: map.get($breakpoints, xs);
+	$md: map.get($breakpoints, md);
+	$lg: map.get($breakpoints, lg);
+	$xl: map.get($breakpoints, xl);
+	$xxl: map.get($breakpoints, xxl);
+	$fhd: map.get($breakpoints, fhd);
+
+	// SPACING:
+	--section-left: 16px;
+	--section-right: 16px;
+	--section-bottom: 20px;
+
+	@media (min-width: #{$md}px) {
+		--section-left: #{vw(85, md)};
+		--section-right: #{vw(85, md)};
+		--section-bottom: #{vw(20, md)};
+	}
+
+	@media (min-width: #{$xl}px) {
+		--section-left: #{vw(125, xl)};
+		--section-right: #{vw(125, xl)};
+		--section-bottom: #{vw(30, xl)};
+	}
+
+	@media (min-width: #{$xxl}px) {
+		--section-left: #{vw(225, xxl)};
+		--section-right: #{vw(225, xxl)};
+		--section-bottom: #{vw(50, xxl)};
+	}
+
+	@media (min-width: #{$fhd}px) {
+		--section-left: #{vw(225)};
+		--section-right: #{vw(225)};
+		--section-bottom: #{vw(60)};
+	}
+}

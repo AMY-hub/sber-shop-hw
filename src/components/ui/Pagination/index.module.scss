@@ -1,58 +1,87 @@
+@import "../../../styles/mixins";
+
 .pagination {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 2rem;
-}
+	margin-top: vw(50, xs);
+	margin-right: 20px;
+	margin-left: 20px;
 
-.pagination__page {
-	margin: 0.5rem;
-	padding: 0.2rem 0.5rem;
-	transition: background-color 300ms;
-	border: none;
-	border-radius: 5px;
-	background-color: #FFE44D;
-	font-size: 1.1rem;
-	font-weight: 500;
-	cursor: pointer;
-}
-
-.pagination__page:hover {
-	background-color: #FFD151;
-}
-
-.pagination__page_active {
-	background-color: #FFD151;
-}
-
-.pagination__next,
-.pagination__prev {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
-}
-
-.pagination__next svg,
-.pagination__prev svg {
-	width: 1.5rem;
-	height: 1.5rem;
-	stroke: #000;
-}
-
-.pagination__next:disabled svg,
-.pagination__prev:disabled svg {
-	opacity: 0.3;
-}
-
-@media (max-width: 500px) {
-	.pagination {
-		margin: 1rem 0.5rem;
+	@include media-breakpoint-down(s) {
+		margin-top: vw(45, s);
 	}
 
-	.pagination__page {
-		margin: 0.3rem;
+	@include media-breakpoint-down(md) {
+		margin-top: vw(45, md);
+	}
+
+	@include media-breakpoint-down(xl) {
+		margin-top: vw(45, xl);
+	}
+
+	@include media-breakpoint-down(xxl) {
+		margin-top: vw(45, xxl);
+	}
+
+	@include media-breakpoint-down(fhd) {
+		margin-top: vw(50);
+	}
+
+	&__page {
+		position: relative;
+		margin: 0.5rem;
+		padding: 0.2rem 0.5rem;
+		transition: background-color 300ms;
+		border: none;
+		border-radius: 5px;
+		color: var(--text-dark);
+		font-size: 1.3rem;
+		font-weight: 500;
+		cursor: pointer;
+
+		@include hover {
+			color: var(--primary);
+		}
+
+		&_active {
+			color: var(--primary);
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 10%;
+				width: 80%;
+				height: 1px;
+				background-color: var(--primary);
+			}
+		}
+
+		@include media-breakpoint-down(s) {
+			margin: 0.3rem;
+		}
+	}
+
+	&__next,
+	&__prev {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+
+		svg {
+			width: 1.5rem;
+			height: 1.5rem;
+			stroke: #000;
+		}
+
+		&:disabled {
+			svg {
+				opacity: 0.3;
+			}
+		}
 	}
 }

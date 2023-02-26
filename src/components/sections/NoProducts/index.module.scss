@@ -20,6 +20,8 @@
 .notfound__icon {
 	width: 20%;
 	height: 20%;
+	fill: var(--primary-pale);
+	opacity: 0.5;
 }
 
 @media (max-width: 500px) {

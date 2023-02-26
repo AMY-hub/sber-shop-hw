@@ -1,11 +1,11 @@
 import { createContext, PropsWithChildren, useEffect, useState, useContext } from 'react';
 import { API } from '../api/api';
-import { CurrentUser, Product } from '../types/common';
+import { CurrentUser, PriceFilterParams, Product } from '../types/common';
 
-type PriceFilter = 'high' | 'low' | null;
+type PriceFilterValue = PriceFilterParams | null;
 
 interface Filters {
-    price: PriceFilter;
+    price: PriceFilterValue;
 }
 
 type UserState = [CurrentUser, (user: CurrentUser) => void];
@@ -13,7 +13,7 @@ type ProductsState = [Product[], (products: Product[]) => void];
 type ProductsCountState = [number, (count: number) => void];
 type PageState = [number, React.Dispatch<React.SetStateAction<number>>];
 type FiltersState = [Filters, React.Dispatch<React.SetStateAction<Filters>>];
-type PriceFiltersState = [PriceFilter, (value: PriceFilter) => void];
+type PriceFiltersState = [PriceFilterValue, (value: PriceFilterValue) => void];
 
 interface IAppContext {
     user: UserState[0];
@@ -68,7 +68,7 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
     }, [currentPage, productsCount, products]);
 
     useEffect(() => {
-        if(filters.price === 'low') {
+        if(filters.price === 'price-asc') {
             products.sort((a, b) => {
                 const a_discount_price = Math.round(a.price - a.price * a.discount / 100);
                 const b_discount_price = Math.round(b.price - b.price * b.discount / 100);
@@ -77,7 +77,7 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
             setProducts([...products]);
         }
 
-        if (filters.price === 'high') {
+        if (filters.price === 'price-desc') {
             products.sort((a, b) => {
                 const a_discount_price = Math.round(a.price - a.price * a.discount / 100);
                 const b_discount_price = Math.round(b.price - b.price * b.discount / 100);
@@ -145,6 +145,6 @@ export const usePriceFilter = (): PriceFiltersState => {
 
     return [
         filters.price, 
-        (value: PriceFilter): void => setFilters({...filters, price: value})
+        (value: PriceFilterValue): void => setFilters({...filters, price: value})
     ];
 };

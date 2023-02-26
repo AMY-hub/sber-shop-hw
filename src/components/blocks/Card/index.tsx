@@ -5,6 +5,7 @@ import {ReactComponent as Save} from "./save.svg";
 
 import "./index.scss";
 import { Link } from 'react-router-dom';
+import { Button, Tag } from '../..';
 
 export const Card: React.FC<CardProps> = ({ product, handleProductLike, currentUser, ...rest }) => {
 
@@ -21,9 +22,7 @@ export const Card: React.FC<CardProps> = ({ product, handleProductLike, currentU
 					{`-${discount}%`}
 				</span>}
 				{tags && tags.map(tag => (
-				<span key={tag} className={cn('tag',`tag_type_${tag}`)}>
-					{tag}
-				</span>))}
+					<Tag key={tag} text={tag} type={tag} />))}
 			</div>
 			<div className="card__sticky card__sticky_type_top-right">
 				<button 
@@ -47,9 +46,9 @@ export const Card: React.FC<CardProps> = ({ product, handleProductLike, currentU
 					<p className="card__name">{name}</p>
 				</div>
 			</Link>
-			<button className="card__cart btn btn_type_primary">
+			<Button type='fill-secondary' className="card__cart">
 				В корзину
-			</button>
+			</Button>
 		</div>
 	);
 };

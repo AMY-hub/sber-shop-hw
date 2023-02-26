@@ -1,0 +1,43 @@
+.rating {
+	position: relative;
+
+	&__stars {
+		position: relative;
+		z-index: 1;
+		min-width: fit-content;
+	}
+
+	&__starsFillWrapper {
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+	}
+
+	&__starsFill {
+		white-space: nowrap;
+	}
+
+	&__star {
+		svg {
+			width: 1rem;
+			height: 1rem;
+			fill: var(--gray);
+		}
+
+		&_filled {
+			svg {
+				fill: var(--accent3);
+			}
+		}
+
+		&Fill {
+			svg {
+				width: 1rem;
+				height: 1rem;
+				fill: var(--accent3);
+			}
+		}
+	}
+}

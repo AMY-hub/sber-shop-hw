@@ -1,0 +1,65 @@
+@import "../../../styles/mixins";
+
+.modal {
+	display: flex;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	background-color: rgb(40 32 28 / 30%);
+
+	&__body {
+		position: relative;
+		min-width: vw(700);
+		padding: vw(35);
+		padding-top: vw(50);
+		border-radius: var(--tab-border-radius);
+		background-color: var(--bg1);
+		color: var(--text-dark);
+
+		@include media-breakpoint-down(xxl) {
+			min-width: vw(600, xxl);
+			padding: vw(35, xxl);
+			padding-top: vw(45, xxl);
+		}
+
+		@include media-breakpoint-down(xxl) {
+			min-width: vw(500, xl);
+			padding: vw(30, xl);
+			padding-top: vw(45, xl);
+		}
+
+		@include media-breakpoint-down(md) {
+			min-width: vw(400, md);
+			padding: 30px;
+			padding-top: 45px;
+		}
+
+		@include media-breakpoint-down(xs) {
+			min-width: 310px;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		width: 1.5rem;
+		height: 1.5rem;
+
+		svg {
+			fill: var(--primary);
+		}
+	}
+
+	&__title {
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+		font-weight: 600;
+		line-height: 1.5;
+		text-align: center;
+	}
+}

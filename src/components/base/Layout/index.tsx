@@ -11,7 +11,9 @@ export const Layout:React.FC = () => {
                   className="logo logo_place_header"
                   href="/" />
           </Header>
-            <Outlet />
+          <main>
+            <Outlet />            
+          </main>
           <Footer />
     </>
   );

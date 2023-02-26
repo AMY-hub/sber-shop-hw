@@ -1,48 +1,58 @@
 @import "~normalize.css";
-@import "./variables.scss";
+@import "./variables";
+@import "./mixins";
 
 html {
-	font-family: $main-font;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizelegibility;
-    position: relative;
-    height: 100%;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+	position: relative;
+	height: 100%;
+	font-family: var(--main-font);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizelegibility;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-    position: relative;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    -webkit-tap-highlight-color: transparent;
+	position: relative;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	-webkit-tap-highlight-color: transparent;
+	background-color: var(--bg1);
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 }
 
-h1, h2, h3, h4, h5, p, a {
-    color: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    text-decoration: inherit;
-    padding: 0;
-    margin: 0;
-    word-break: break-word;
-    word-wrap: break-word;
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	text-decoration: inherit;
+	word-wrap: break-word;
+	word-break: break-word;
 }
 
-ul, ol, li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+ul,
+ol,
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 img {
@@ -50,63 +60,56 @@ img {
 }
 
 input {
-    border: none;
-    background: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    appearance: none;
-    color: inherit;
+	border: none;
+	background: inherit;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	appearance: none;
 
-    &:hover,
-    &:active,
-    &:focus {
-        outline: none;
-    }
+	&:hover,
+	&:active,
+	&:focus {
+		outline: none;
+	}
 
-    &::placeholder {
-        letter-spacing: -0.02em;
-    }
+	&::placeholder {
+		letter-spacing: -0.02em;
+	}
 }
 
 button {
-    background: transparent;
-    border: none;
-    font-family: $main-font;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	font-family: var(--main-font);
+	cursor: pointer;
 }
 
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	border: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
 }
 
 #root {
 	display: flex;
 	flex-direction: column;
+	height: 100%;
 }
 
-.container {
-	width: 95%;
-	max-width: 1024px;
-	margin: 0 auto;
-	padding-right: 16px;
-	padding-left: 16px;
-}
-
-.content {
-	padding: 20px 0;
-}
-
-.content__sort {
-	margin-bottom: 40px;
+main {
+	flex: 1 0 auto;
+	min-height: 100vh;
+	border-top-left-radius: var(--section-border-radius);
+	border-top-right-radius: var(--section-border-radius);
+	background-color: var(--bg1);
 }

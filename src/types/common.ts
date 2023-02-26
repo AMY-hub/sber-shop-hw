@@ -3,6 +3,8 @@ export interface AllProductsData {
     products: Product[];
 }
 
+type Tag = 'new' | 'sale';
+
 export interface Product {
     discount: number;
     stock: number;
@@ -10,7 +12,7 @@ export interface Product {
     pictures: string;
     likes: string[];
     reviews: Review[];
-    tags: string[];
+    tags: Tag[];
     isPublished: boolean;
     _id: string;
     name: string;
@@ -54,3 +56,5 @@ export interface UserData {
 }
 
 export type CurrentUser = UserData | null;
+
+export type PriceFilterParams = 'price-asc' | 'price-desc';

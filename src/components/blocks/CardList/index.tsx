@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { Card, NoProducts, SortPanel } from '../..';
+import { Card, Pagination } from '../..';
 import { useProducts, useProductsToShow, useUserData } from '../../../context/AppContext';
 import { CardListProps } from './props';
 import { isProductLiked } from '../../../helpers/helpers';
@@ -7,7 +7,6 @@ import { API } from '../../../api/api';
 import { Product } from '../../../types/common';
 
 import s from './index.module.scss';
-import { Pagination } from '../../ui/Pagination';
 
 
 export const CardList: React.FC<CardListProps> = ({ className, ...rest}) => {
@@ -33,11 +32,6 @@ export const CardList: React.FC<CardListProps> = ({ className, ...rest}) => {
 
 	return (
 		<>
-		{visibleProducts.length === 0 ? 
-		<NoProducts />
-		:
-		<>
-			<SortPanel />
 			<div className={cn(s.cards, className)} {...rest}>
 				{
 					visibleProducts.map(product => (
@@ -49,9 +43,7 @@ export const CardList: React.FC<CardListProps> = ({ className, ...rest}) => {
 					))
 				}
 			</div>
-			<Pagination />	
-		</>			
-		}
+			<Pagination />		
 		</>
 	);
 };

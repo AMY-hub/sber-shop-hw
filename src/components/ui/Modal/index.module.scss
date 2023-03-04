@@ -1,4 +1,5 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
+@use '../../../styles/variables.scss' as f;
 
 .modal {
 	display: flex;
@@ -13,32 +14,32 @@
 
 	&__body {
 		position: relative;
-		min-width: vw(700);
-		padding: vw(35);
-		padding-top: vw(50);
+		min-width: f.vw(700);
+		padding: f.vw(35);
+		padding-top: f.vw(50);
 		border-radius: var(--tab-border-radius);
 		background-color: var(--bg1);
 		color: var(--text-dark);
 
-		@include media-breakpoint-down(xxl) {
-			min-width: vw(600, xxl);
-			padding: vw(35, xxl);
-			padding-top: vw(45, xxl);
+		@include m.media-breakpoint-down(xxl) {
+			min-width: f.vw(600, xxl);
+			padding: f.vw(35, xxl);
+			padding-top: f.vw(45, xxl);
 		}
 
-		@include media-breakpoint-down(xxl) {
-			min-width: vw(500, xl);
-			padding: vw(30, xl);
-			padding-top: vw(45, xl);
+		@include m.media-breakpoint-down(xxl) {
+			min-width: f.vw(500, xl);
+			padding: f.vw(30, xl);
+			padding-top: f.vw(45, xl);
 		}
 
-		@include media-breakpoint-down(md) {
+		@include m.media-breakpoint-down(md) {
 			min-width: vw(400, md);
 			padding: 30px;
 			padding-top: 45px;
 		}
 
-		@include media-breakpoint-down(xs) {
+		@include m.media-breakpoint-down(xs) {
 			min-width: 310px;
 		}
 	}

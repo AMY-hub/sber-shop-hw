@@ -18,32 +18,32 @@ export const Footer: React.FC = () => {
 					</div>
 					<div className={s.footer__col}>
 					<nav className={s.footer__menuBottom}>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/products'>
 								Каталог
 							</BaseLink>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/sale'>
 									Акции
 								</BaseLink>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/news'>
 									Новости
 								</BaseLink>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/feedback'>
 								Отзывы
 							</BaseLink>
 						</nav>
 					</div>
 					<div className={s.footer__col}>
 						<nav className={s.footer__menuBottom}>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/delivery'>
 								Оплата и доставка
 							</BaseLink>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/faq'>
 								Часто спрашивают
 							</BaseLink>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/contacts'>
 								Обратная связь
 							</BaseLink>
-							<BaseLink type='light' as='Link' to='/'>
+							<BaseLink type='light' as='Link' to='/contacts'>
 								Контакты
 							</BaseLink>
 						</nav>

@@ -1,20 +1,22 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Footer, Header, Logo } from '../..';
+import { Outlet, useNavigation } from 'react-router-dom';
+import { Footer, Header, Preloader } from '../..';
 
 export const Layout:React.FC = () => {
+
+  const navigation = useNavigation();
     
   return (
     <>
-          <Header>
-              <Logo
-                  className="logo logo_place_header"
-                  href="/" />
-          </Header>
-          <main>
-            <Outlet />            
-          </main>
-          <Footer />
+          {navigation.state === 'loading' ? <Preloader />
+          :
+          <>
+            <Header />
+            <main>
+              <Outlet />            
+            </main>
+            <Footer />          
+          </>}
     </>
   );
 };

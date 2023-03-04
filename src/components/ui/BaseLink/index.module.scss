@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .link {
 	$root: &;
@@ -16,6 +16,8 @@
 
 	&__text {
 		position: relative;
+		display: inline-flex;
+		align-items: center;
 
 		&::after {
 			content: "";
@@ -29,7 +31,7 @@
 			background-color: var(--text-dark);
 		}
 
-		@include hover {
+		@include m.hover {
 			&::after {
 				transform: scale(1);
 			}

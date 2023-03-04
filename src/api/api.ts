@@ -35,6 +35,14 @@ class Api {
         return await this.onResponce(res);
     };
 
+
+    getProductById = async (id: string): Promise<Product> => {
+        const res = await fetch(`${this._baseUrl}/products/${id}`, {
+            headers: this._headers
+        });
+        return await this.onResponce(res);
+    };
+
     search = async (searchQuery: string): Promise<Product[]> => {
         const res = await fetch(`${this._baseUrl}/products/search?query=${searchQuery}`, {
             headers: this._headers
@@ -53,15 +61,6 @@ class Api {
     getUserInfo = (): Promise<UserData> => {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
-        }).then((res) => this.onResponce(res));
-    };
-
-    //RETURN??
-    setUserInfo = (newUserData: UserData): Promise<UserData> => {
-        return fetch(`${this._baseUrl}/users/me`, {
-            method: 'PATCH',
-            headers: this._headers,
-            body: JSON.stringify(newUserData)
         }).then((res) => this.onResponce(res));
     };
 }

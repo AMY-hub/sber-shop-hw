@@ -1,14 +1,19 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
+@use '../../../styles/variables.scss'as f;
 
 .card {
 	display: flex;
 	align-items: flex-start;
-	padding: 12px;
+	padding: f.vw(16);
 	border-radius: var(--tab-border-radius);
 	background-color: var(--gray-light);
 
-	@include media-breakpoint-down(s) {
-		padding: 8px;
+	@include m.media-breakpoint-down(md) {
+		padding: 1rem;
+	}
+
+	@include m.media-breakpoint-down(s) {
+		padding: 0.5rem;
 	}
 
 	&__icon {
@@ -23,7 +28,7 @@
 			fill: var(--text-pale);
 		}
 
-		@include media-breakpoint-down(s) {
+		@include m.media-breakpoint-down(s) {
 			width: 1.5rem;
 			height: 1.5rem;
 			margin-right: 8px;

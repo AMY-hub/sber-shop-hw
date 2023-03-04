@@ -6,9 +6,12 @@ import { RatingProps } from './props';
 import s from './index.module.scss';
 
 export const Rating: React.FC<RatingProps> = ({ rating, starsCount=5, className, ...rest})  => {
-
-	const ratingProgress = rating * 100 / starsCount;
+	let ratingProgress = rating * 100 / starsCount;
 	
+	if(isNaN(ratingProgress)) {
+		ratingProgress = 0;
+	}
+
 	const elements: JSX.Element[] = new Array(starsCount).fill(<></>);
 	const stars = elements.map((el, idx) => {
 		idx += 1;

@@ -20,6 +20,13 @@ $breakpoints: (
 	fhd: 1920,
 );
 
+$xs: map.get($breakpoints, xs);
+$md: map.get($breakpoints, md);
+$lg: map.get($breakpoints, lg);
+$xl: map.get($breakpoints, xl);
+$xxl: map.get($breakpoints, xxl);
+$fhd: map.get($breakpoints, fhd);
+
 :root {
 	--base-transition-time: 300ms;
 	--section-border-radius: 34px;
@@ -51,39 +58,32 @@ $breakpoints: (
 	--accent2: #04A497;
 	--accent3: #FFAA0D;
 
-	$xs: map.get($breakpoints, xs);
-	$md: map.get($breakpoints, md);
-	$lg: map.get($breakpoints, lg);
-	$xl: map.get($breakpoints, xl);
-	$xxl: map.get($breakpoints, xxl);
-	$fhd: map.get($breakpoints, fhd);
-
 	// SPACING:
 	--section-left: 16px;
 	--section-right: 16px;
-	--section-bottom: 20px;
+	--section-bottom: 60px;
 
-	@media (min-width: #{$md}px) {
+	@media (min-width: #{--md}px) {
 		--section-left: #{vw(85, md)};
 		--section-right: #{vw(85, md)};
-		--section-bottom: #{vw(20, md)};
+		--section-bottom: #{vw(50, md)};
 	}
 
 	@media (min-width: #{$xl}px) {
 		--section-left: #{vw(125, xl)};
 		--section-right: #{vw(125, xl)};
-		--section-bottom: #{vw(30, xl)};
+		--section-bottom: #{vw(60, xl)};
 	}
 
 	@media (min-width: #{$xxl}px) {
 		--section-left: #{vw(225, xxl)};
 		--section-right: #{vw(225, xxl)};
-		--section-bottom: #{vw(50, xxl)};
+		--section-bottom: #{vw(80, xxl)};
 	}
 
 	@media (min-width: #{$fhd}px) {
 		--section-left: #{vw(225)};
 		--section-right: #{vw(225)};
-		--section-bottom: #{vw(60)};
+		--section-bottom: #{vw(80)};
 	}
 }

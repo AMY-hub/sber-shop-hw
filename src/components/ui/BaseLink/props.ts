@@ -7,6 +7,7 @@ type BaseLinkSize = 'xs' | 'm' | 'xl';
 type ButtonCustomProps = {
     type?: BaseLinkStyle;
     children: string;
+    Icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>; 
     size?: BaseLinkSize;
     arrLeft?: boolean;
     arrRight?: boolean;

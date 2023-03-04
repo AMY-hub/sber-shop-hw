@@ -11,7 +11,7 @@ export const Card: React.FC<CardProps> = ({ product, handleProductLike, currentU
 
 	const { name, price, likes, discount, wight, description, pictures, tags, _id } = product;
 
-	const discount_price = Math.round(price - price * discount / 100);
+	const newPrice = Math.round(price - price * discount / 100);
 	const liked = currentUser ? isProductLiked(likes, currentUser._id) : false;
 
 	return (
@@ -40,7 +40,7 @@ export const Card: React.FC<CardProps> = ({ product, handleProductLike, currentU
 					</span>
 					{discount !== 0 && 
 					<span className="card__price card__price_type_discount">
-						{`${discount_price} ₽`} 
+						{`${newPrice} ₽`} 
 					</span>}
 					<span className="card__wight">{wight}</span>
 					<p className="card__name">{name}</p>

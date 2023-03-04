@@ -1,9 +1,9 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .header {
-	display: flex;
+	display: grid;
 	align-items: center;
-	justify-content: space-between;
+	grid-template-columns: 1fr 1fr;
 	width: 100%;
 	margin-bottom: -10rem;
 	padding-top: 2rem;
@@ -13,26 +13,35 @@
 	background-color: var(--primary);
 	color: var(--text-light);
 
-	&__wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 80px;
+	&__logo {
+		grid-row: span 2;
+		align-self: center;
+
+		@include m.media-breakpoint-down(sm) {
+			grid-row: 1;
+		}
 	}
 
 	&__user {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		justify-content: space-between;
+		justify-content: flex-end;
+		margin-bottom: 0.8rem;
+		height: 100%;
+		align-self: baseline;
 
-		@include media-breakpoint-down(s) {
+		@include m.media-breakpoint-up(sm) {
+			padding-bottom: 0.6rem;
+		}
+
+		@include m.media-breakpoint-down(s) {
 			max-width: 300px;
 			font-size: 0.9rem;
 			text-align: right;
 		}
 
-		@include media-breakpoint-down(xs) {
+		@include m.media-breakpoint-down(xs) {
 			max-width: 200px;
 			font-size: 0.75rem;
 		}
@@ -47,5 +56,18 @@
 		margin-top: 15px;
 		margin-bottom: 15px;
 		padding: 4px;
+	}
+
+	&__search {
+		grid-column: 2;
+		max-width: 300px;
+		justify-self: flex-end;
+
+		@include m.media-breakpoint-down(sm) {
+			grid-column: span 2;
+			margin-top: 1.5rem;
+			max-width: unset;
+			width: 100%;
+		}
 	}
 }

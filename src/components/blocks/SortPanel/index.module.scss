@@ -1,11 +1,11 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .sort {
 	width: fit-content;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 
-	@include media-breakpoint-down(s) {
+	@include m.media-breakpoint-down(s) {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}

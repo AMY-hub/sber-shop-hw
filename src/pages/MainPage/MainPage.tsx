@@ -1,15 +1,15 @@
 import React from 'react';
-import { Catalog, Preloader } from '../../components';
-import { useLoadingState } from '../../context/AppContext';
+import { BaseLink } from '../../components';
+
+import s from './index.module.scss';
 
 export const MainPage:React.FC = () => {
 
-    const loading = useLoadingState();
 
   return (
-      loading ?
-        <Preloader />
-        :
-        <Catalog />
+      <div className={s.main}>
+      <h1 className={s.main__title}>Главная страница</h1>
+        <BaseLink as='Link' to='/products' type='accent' size='xl'>К каталогу</BaseLink>
+      </div>
     );
 };

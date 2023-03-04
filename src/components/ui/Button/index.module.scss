@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .button {
 	display: inline-block;
@@ -18,7 +18,7 @@
 	background-color: var(--primary);
 	color: var(--text-light);
 
-	@include hover {
+	@include m.hover {
 		background-color: var(--primary-pale);
 	}
 }
@@ -27,27 +27,27 @@
 	background-color: var(--secondary);
 	color: var(--text-light);
 
-	@include hover {
+	@include m.hover {
 		background-color: var(--secondary-dark);
 	}
 }
 
 .stroke-primary {
-	border: 1px solid var(--secondary-dark);
-	background-color: transparent;
-	color: var(--secondary-dark);
-
-	@include hover {
-		background-color: var(--secondary-transparent);
-	}
-}
-
-.stroke-secondary {
 	border: 1px solid var(--primary);
 	background-color: transparent;
 	color: var(--primary);
 
-	@include hover {
+	@include m.hover {
 		background-color: var(--primary-transparent);
+	}
+}
+
+.stroke-secondary {
+	border: 1px solid var(--secondary-dark);
+	background-color: transparent;
+	color: var(--secondary-dark);
+
+	@include m.hover {
+		background-color: var(--secondary-transparent);
 	}
 }

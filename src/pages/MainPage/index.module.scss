@@ -1,0 +1,13 @@
+@use "../../styles/typografy"as t;
+
+.main {
+	padding-right: var(--section-right);
+	padding-bottom: var(--section-bottom);
+	padding-top: var(--section-bottom);
+	padding-left: var(--section-left);
+
+	&__title {
+		@include t.h1;
+		margin-bottom: 2rem;
+	}
+}

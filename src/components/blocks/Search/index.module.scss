@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .search {
 	display: flex;
@@ -8,33 +8,35 @@
 
 	&__input {
 		width: 100%;
-		padding: 0.8rem 1.2rem;
+		padding: 0.7rem 1rem;
 		padding-right: 5rem;
 		transition: background-color var(--base-transition-time);
-		border: 1px solid var(--primary);
+		border: 1px solid var(--bg1);
 		border-radius: var(--button-border-radius);
-		color: var(--text-dark);
-		caret-color: var(--primary);
+		color: #fff;
+		caret-color: var(--bg1);
 
 		&:focus {
-			background-color: var(--primary-transparent);
+			background-color: rgba(#fff, 0.1);
 		}
 
 		&::placeholder {
-			color: var(--text-pale);
+			color: var(--primary-light);
 		}
 
-		@include media-breakpoint-down(xs) {
+		@include m.media-breakpoint-down(xs) {
 			max-width: 400px;
 		}
 	}
 
 	&__btns {
 		display: flex;
+		justify-content: flex-end;
+		align-items: center;
 		position: absolute;
-		top: 25%;
 		right: 1.5rem;
 		width: 2.5rem;
+		height: 100%;
 		padding: 0;
 	}
 
@@ -51,20 +53,19 @@
 		}
 
 		svg {
+			display: block;
+			height: 100%;
 			transition: fill 300ms;
-			fill: var(--text-pale);
+			fill: var(--primary-light);
 		}
 
 		&_disabled svg {
-			fill: var(--text-pale);
+			fill: rgba(#fff, 0.3);
 		}
+	}
 
-		&:focus svg {
-			fill: var(--primary);
-		}
-
-		&:hover svg {
-			fill: var(--primary);
-		}
+	&__searchBtn {
+		width: 1.3rem;
+		height: 1.3rem;
 	}
 }

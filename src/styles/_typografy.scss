@@ -1,0 +1,67 @@
+@use "./mixins"as m;
+
+@mixin h1 {
+    font-family: var(--main-font);
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.14;
+
+   @include m.media-breakpoint-down(s) {
+       font-size: 24px;
+   }
+
+   @include m.media-breakpoint-down(s) {
+       font-size: 22px;
+   }
+}
+
+@mixin h2 {
+    font-family: var(--main-font);
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.2;
+
+    @include m.media-breakpoint-down(s) {
+        font-size: 22px;
+    }
+
+    @include m.media-breakpoint-down(s) {
+        font-size: 20px;
+    }
+}
+
+@mixin h3 {
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+
+    @include m.media-breakpoint-down(s) {
+        font-size: 18px;
+    }
+
+    @include m.media-breakpoint-down(s) {
+        font-size: 16px;
+    }
+}
+
+@mixin text1 {
+    font-family: var(--main-font);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+}
+
+@mixin text2 {
+    font-family: var(--main-font);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+@mixin text3 {
+    font-family: var(--main-font);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+}

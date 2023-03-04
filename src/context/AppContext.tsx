@@ -41,7 +41,7 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
     const [visibleProducts, setVisibleProducts] = useState<Product[]>([]);
     const [productsCount, setProductsCount] = useState<number>(0);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [loading, setLoading] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(true);
     const [user, setUser] = useState<CurrentUser>(null);
 
     const [filters, setFilters] = useState<Filters>({
@@ -49,7 +49,6 @@ export const ContextProvider = ({children}: PropsWithChildren): JSX.Element => {
     });
     
     useEffect(() => {
-        setLoading(true);
         Promise.all([API.getProductList(), API.getUserInfo()])
             .then(([productsData, userData]) => {
                 setUser(userData);

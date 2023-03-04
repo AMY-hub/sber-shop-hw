@@ -47,11 +47,7 @@ export const UI:React.FC = () => {
             Open modal
           </Button>
 
-          <Search 
-          searchQuery='' 
-          setSearchQuery={() => console.log('test')}
-          onSearchInput={() => console.log('test')}
-          onSearchSubmit={() => console.log('test')} />
+          <Search />
 
           <Modal
             title='Modal title'
@@ -80,6 +76,7 @@ export const UI:React.FC = () => {
           </InfoCard>
 
           <Rating rating={0} />
+          <Rating rating={2} />
           <Rating rating={1.5} />
           <Rating rating={2.83} />
           <Rating rating={3.2} />

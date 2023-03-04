@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .panel {
 	border-radius: var(--button-border-radius);
@@ -38,7 +38,7 @@
 			color: var(--text-light);
 		}
 
-		@include media-breakpoint-down(s) {
+		@include m.media-breakpoint-down(s) {
 			padding: 0.5rem 0.8rem;
 		}
 	}

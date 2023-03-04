@@ -1,10 +1,11 @@
 .rating {
 	position: relative;
+	width: fit-content;
 
 	&__stars {
 		position: relative;
 		z-index: 1;
-		min-width: fit-content;
+		
 	}
 
 	&__starsFillWrapper {

@@ -8,7 +8,6 @@ import { Product } from '../../../types/common';
 
 import s from './index.module.scss';
 
-
 export const CardList: React.FC<CardListProps> = ({ className, ...rest}) => {
 
 	const [products, setProducts] = useProducts();
@@ -47,4 +46,3 @@ export const CardList: React.FC<CardListProps> = ({ className, ...rest}) => {
 		</>
 	);
 };
-

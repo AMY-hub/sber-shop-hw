@@ -10,12 +10,13 @@ import s from './index.module.scss';
 export const BaseLink: React.FC<BaseLinkProps> = (props) => {
 
   if (props.as === 'Link') {
-    const { className, type = 'dark', size = 'm', as, to, children, arrLeft, arrRight, ...rest } = props;
+    const { className, Icon, type = 'dark', size = 'm', as, to, children, arrLeft, arrRight, ...rest } = props;
     return (
       <Link to={to} className={cn(s.link, s[type], s[size], className)} {...rest}>
         {arrLeft &&
           <ArrLeft />}
           <span className={cn(s.link__text)}>
+            {Icon && <Icon/>}
             {children}
           </span>
         {arrRight &&
@@ -25,12 +26,13 @@ export const BaseLink: React.FC<BaseLinkProps> = (props) => {
   } 
   
   if (props.as === 'a') {
-    const { className, type = 'dark', size = 'm', as, children, arrLeft, arrRight, ...rest } = props;
+    const { className, Icon, type = 'dark', size = 'm', as, children, arrLeft, arrRight, ...rest } = props;
       return (
         <a className={cn(s.link, s[type], s[size], className)} target='_blank' {...rest}>
           {arrLeft &&
             <ArrLeft />}
           <span className={cn(s.link__text)}>
+            {Icon && <Icon />}
             {children}
           </span>
           {arrRight &&
@@ -39,13 +41,14 @@ export const BaseLink: React.FC<BaseLinkProps> = (props) => {
     );
   }
 
-  const { className, type = 'dark', size = 'm', as, children, arrLeft, arrRight, ...rest } = props;
+  const { className, Icon, type = 'dark', size = 'm', as, children, arrLeft, arrRight, ...rest } = props;
 
   return (
     <button className={cn(s.link, s[type], s[size], className)} {...rest}>
       {arrLeft &&
         <ArrLeft />}
       <span className={cn(s.link__text)}>
+        {Icon && <Icon />}
         {children}
       </span>
       {arrRight &&

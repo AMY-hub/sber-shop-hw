@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .input {
 	display: flex;
@@ -47,7 +47,7 @@
 			color: var(--accent1);
 		}
 	}
-	
+
 	&.accent {
 		input {
 			border: 1px solid var(--primary);
@@ -61,6 +61,4 @@
 			color: var(--primary);
 		}
 	}
-
-
 }

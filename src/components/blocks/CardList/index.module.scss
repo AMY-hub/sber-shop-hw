@@ -1,4 +1,4 @@
-@import "../../../styles/mixins";
+@use "../../../styles/mixins"as m;
 
 .cards {
 	display: grid;
@@ -6,15 +6,15 @@
 	width: 100%;
 	gap: 16px;
 
-	@include media-breakpoint-down(xl) {
+	@include m.media-breakpoint-down(xl) {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	@include media-breakpoint-down(md) {
+	@include m.media-breakpoint-down(md) {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	@include media-breakpoint-down(sm) {
+	@include m.media-breakpoint-down(sm) {
 		grid-template-columns: repeat(1, 1fr);
 	}
 }

@@ -2,30 +2,32 @@
 @use "../../../styles/mixins" as m;
 
 .reviews {
-    color: var(--text-dark);
+	color: var(--text-dark);
 
-    &__title {
-        @include t.h2;
-        margin-bottom: 2rem;
-    }
+	&__title {
+		@include t.h2;
 
-    h3 {
-        @include t.h3;
-        color: var(--text-pale);
-    }
+		margin-bottom: 2rem;
+	}
 
-    &__item:not(:last-child) {
-        margin-bottom: 1rem;
-    }
+	h3 {
+		@include t.h3;
 
-    &__more {
-        display: flex;
-        justify-content: center;
-        margin: auto;
-        margin-top: 2rem;
-       
-        @include m.media-breakpoint-down(xl) {
-            width: 100%;
-        }
-    }
+		color: var(--text-pale);
+	}
+
+	&__item:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+
+	&__more {
+		display: flex;
+		justify-content: center;
+		margin: auto;
+		margin-top: 2rem;
+
+		@include m.media-breakpoint-down(xl) {
+			width: 100%;
+		}
+	}
 }

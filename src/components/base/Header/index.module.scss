@@ -2,8 +2,8 @@
 
 .header {
 	display: grid;
-	align-items: center;
 	grid-template-columns: 1fr 1fr;
+	align-items: center;
 	width: 100%;
 	margin-bottom: -10rem;
 	padding-top: 2rem;
@@ -26,10 +26,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		justify-content: flex-end;
-		margin-bottom: 0.8rem;
-		height: 100%;
 		align-self: baseline;
+		justify-content: flex-end;
+		height: 100%;
+		margin-bottom: 0.8rem;
 
 		@include m.media-breakpoint-up(sm) {
 			padding-bottom: 0.6rem;
@@ -65,9 +65,9 @@
 
 		@include m.media-breakpoint-down(sm) {
 			grid-column: span 2;
-			margin-top: 1.5rem;
-			max-width: unset;
 			width: 100%;
+			max-width: unset;
+			margin-top: 1.5rem;
 		}
 	}
 }

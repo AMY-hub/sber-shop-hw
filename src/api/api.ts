@@ -1,4 +1,4 @@
-import { AllProductsData, Product, UserData } from '../types/common';
+import { AllProductsData, Product, ProductError, UserData } from '../types/common';
 
 type Headers = Record<'content-type' | 'Authorization', string>;
 
@@ -35,8 +35,7 @@ class Api {
         return await this.onResponce(res);
     };
 
-
-    getProductById = async (id: string): Promise<Product> => {
+    getProductById = async (id: string): Promise<Product | ProductError> => {
         const res = await fetch(`${this._baseUrl}/products/${id}`, {
             headers: this._headers
         });

@@ -19,7 +19,6 @@ $breakpoints: (
 	xxxl: 1600,
 	fhd: 1920,
 );
-
 $xs: map.get($breakpoints, xs);
 $md: map.get($breakpoints, md);
 $lg: map.get($breakpoints, lg);

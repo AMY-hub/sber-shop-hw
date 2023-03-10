@@ -18,14 +18,14 @@ export const ProductPage:React.FC = () => {
 };
 
 export const productLoader: LoaderFunction = async ({params}) => {
-  try {
-    if(params.id) {
+    if(!params.id) {
+      throw new Error('Not found');
+    }
+
+    try {
       const product = await API.getProductById(params.id);
-      return {product};    
-    } else {
-      throw new Error('Incorrect route data');
-    }   
-  } catch (error) {
-    console.log(error);
-  }
+      return { product };
+    } catch (err) {
+      throw new Error('Not found');
+    }          
 };

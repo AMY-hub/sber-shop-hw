@@ -1,15 +1,15 @@
 @use "../../../styles/mixins"as m;
 
 .product {
-    padding-top: 3rem;
-    padding-right: var(--section-right);
-    padding-bottom: var(--section-bottom);
-    padding-left: var(--section-left);
-    border-top-left-radius: var(--section-border-radius);
-    border-top-right-radius: var(--section-border-radius);
-    background-color: var(--bg1);
+	padding-top: 3rem;
+	padding-right: var(--section-right);
+	padding-bottom: var(--section-bottom);
+	padding-left: var(--section-left);
+	border-top-left-radius: var(--section-border-radius);
+	border-top-right-radius: var(--section-border-radius);
+	background-color: var(--bg1);
 
-    @include m.media-breakpoint-down(s) {
-        padding-top: 2rem;
-    }
+	@include m.media-breakpoint-down(s) {
+		padding-top: 2rem;
+	}
 }

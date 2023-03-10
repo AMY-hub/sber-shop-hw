@@ -25,6 +25,19 @@ export interface Product {
     __v: number;
 }
 
+export interface ProductError {
+    "message": string,
+    "err": ErrorInfo
+}
+
+interface ErrorInfo {
+    "stringValue": string,
+    "kind": string,
+    "value": string,
+    "path": string,
+    "reason": unknown
+}
+
 export interface Review {
     rating: number;
     _id: string;

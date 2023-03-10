@@ -15,8 +15,8 @@
 	cursor: pointer;
 
 	&__text {
-		position: relative;
 		display: inline-flex;
+		position: relative;
 		align-items: center;
 
 		&::after {

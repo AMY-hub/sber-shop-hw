@@ -4,12 +4,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { Layout } from './components';
+import { ErrorComponent, Layout } from './components';
 import { ContextProvider } from './context/AppContext';
 import { productLoader, ProductPage } from './pages/ProductPage/ProductPage';
 import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 import { CatalogPage } from './pages/CatalogPage/CatalogPage';
-import { Page404 } from './pages/Page404/Page404';
 import { UI } from './pages/Ui-kit/Ui-kit';
 import { MainPage } from './pages/MainPage/MainPage';
 
@@ -42,7 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: '*',
-    element: <Page404 />
+    element: <ErrorComponent code={404} />
   }
 ]);
 

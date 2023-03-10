@@ -1,204 +1,213 @@
 @use "../../../styles/mixins"as m;
 @use "../../../styles/typografy"as t;
-@use '../../../styles/variables.scss'as f;
+@use "../../../styles/variables.scss"as f;
 
 .info {
-    $root: &;
-    
-    &__title {
-        @include t.h1;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+	$root: &;
 
-        @include m.media-breakpoint-down(s) {
-            margin-bottom: 0.5rem;
-            margin-top: 0.5rem;
-        }
-    }
+	&__title {
+		@include t.h1;
 
-    &__params {
-        display: flex;
-        align-items: flex-end;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 
-        margin-bottom: 2.5rem;
+		@include m.media-breakpoint-down(s) {
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+	}
 
-        @include m.media-breakpoint-down(s) {
-            margin-bottom: 1rem;
-        }
-    }
+	&__params {
+		display: flex;
+		align-items: flex-end;
+		margin-bottom: 2.5rem;
 
-    &__art {
-        margin-right: 1rem;
-        span {
-            color: var(--text-pale);
-            font-size: 0.8rem;
-        }
-    }
+		@include m.media-breakpoint-down(s) {
+			margin-bottom: 1rem;
+		}
+	}
 
-    &__rate {
-        margin-right: 1rem;
-    }
+	&__art {
+		margin-right: 1rem;
 
-    &__reviewLink {
-        padding: 0;
-    }
+		span {
+			color: var(--text-pale);
+			font-size: 0.8rem;
+		}
+	}
 
-    &__mainContent {
-        display: grid;
-        grid-template-columns: 50% auto;
-        column-gap: 60px;
+	&__rate {
+		margin-right: 1rem;
+	}
 
-        @include m.media-breakpoint-down(xl) {
-            column-gap: 30px;
-        }
+	&__reviewLink {
+		padding: 0;
+	}
 
-        @include m.media-breakpoint-down(s) {
-            grid-template-columns: 1fr;
-        }
-    }
+	&__mainContent {
+		display: grid;
+		grid-template-columns: 50% auto;
+		column-gap: 60px;
 
-    &__image {
-        height: 100%;
-        grid-row: span 2;
-        border-radius: 15px;
-        overflow: hidden;
-        background-color: #fff;
+		@include m.media-breakpoint-down(xl) {
+			column-gap: 30px;
+		}
 
-        @include m.media-breakpoint-down(md) {
-            min-width: f.vw(200, md);
-        }
+		@include m.media-breakpoint-down(s) {
+			grid-template-columns: 1fr;
+		}
+	}
 
-        @include m.media-breakpoint-down(s) {
-            grid-row: unset;
-            margin-bottom: 20px;
-            max-width: 80%;
-        }
+	&__image {
+		grid-row: span 2;
+		height: 100%;
+		overflow: hidden;
+		border-radius: 15px;
+		background-color: #FFF;
 
-        @include m.media-breakpoint-down(sm) {
-            max-width: 100%;
-        }
+		@include m.media-breakpoint-down(md) {
+			min-width: f.vw(200, md);
+		}
 
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            object-position: center;
-        }
-    }
+		@include m.media-breakpoint-down(s) {
+			grid-row: unset;
+			max-width: 80%;
+			margin-bottom: 20px;
+		}
 
-    &__priceOld {
-        text-decoration: line-through;
-        @include m.media-breakpoint-down(s) {
-            margin-top: 20px;
-        }
-    }
+		@include m.media-breakpoint-down(sm) {
+			max-width: 100%;
+		}
 
-    &__priceNew {
-        @include t.h1;
-        color: var(--accent1);
-    }
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: center;
+		}
+	}
 
-    &__cartBtn {
-        margin-left: 1rem;
-    }
+	&__priceOld {
+		text-decoration: line-through;
 
-    &__controls {
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+		@include m.media-breakpoint-down(s) {
+			margin-top: 20px;
+		}
+	}
 
-        @include m.media-breakpoint-down(s) {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-        }
-    }
+	&__priceNew {
+		@include t.h1;
 
-    &__favBtn {
-        margin-bottom: 1rem;
-        span::after {
-            display: none;
-        }
-        svg {
-            fill: var(--text-pale);
-            height: 1rem;
-            width: 1rem;
-            margin-right: 0.5rem;
-        }
+		color: var(--accent1);
+	}
 
-        &_liked {
-            color: var(--accent1) !important;
-            svg {
-                fill: var(--accent1);
-            }
-        }
-    }
+	&__cartBtn {
+		margin-left: 1rem;
+	}
 
-    &__advantages {
-        grid-column: 2;
-        margin-bottom: 40px;
-        div:not(:last-child) {
-            margin-bottom: 0.5rem;
-        }
+	&__controls {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
 
-        p:not(:last-child) {
-            margin-bottom: 0.5rem;
-        }
+		@include m.media-breakpoint-down(s) {
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+		}
+	}
 
-        span {
-            font-weight: 600;
-        }
+	&__favBtn {
+		margin-bottom: 1rem;
 
-        @include m.media-breakpoint-down(s) {
-            grid-column: unset;
-            grid-row: 4;
-            margin-bottom: 30px;
-        }
-    }
+		span::after {
+			display: none;
+		}
 
-    &__advTitle {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-    }
+		svg {
+			width: 1rem;
+			height: 1rem;
+			margin-right: 0.5rem;
+			fill: var(--text-pale);
+		}
 
-    &__description {
-        @include t.text1;
-        grid-column: span 2;
-        margin-top: 40px;
+		&_liked {
+			color: var(--accent1) !important;
 
-        @include m.media-breakpoint-down(s) {
-            margin-top: 20px;
-            grid-column: unset;
-        }
-    }
+			svg {
+				fill: var(--accent1);
+			}
+		}
+	}
 
-    &__table {
-        margin-top: 40px;
-        margin-bottom: 40px;
+	&__advantages {
+		grid-column: 2;
+		margin-bottom: 40px;
 
-        @include m.media-breakpoint-down(s) {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
+		div:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
 
-        th:not(#{$root}__subTitle) {
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
+		p:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
 
-        td {
-            display: inline-block;
-            padding-left: 60px;
-            margin-bottom: 1rem;
-        }
-    }
+		span {
+			font-weight: 600;
+		}
 
-    &__subTitle {
-        @include t.h2;
-        text-align: left;
-        padding-bottom: 2rem;
+		@include m.media-breakpoint-down(s) {
+			grid-column: unset;
+			grid-row: 4;
+			margin-bottom: 30px;
+		}
+	}
 
-        @include m.media-breakpoint-down(s) {
-            padding-bottom: 1rem;
-        }
-    }
+	&__advTitle {
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+	}
+
+	&__description {
+		@include t.text1;
+
+		grid-column: span 2;
+		margin-top: 40px;
+
+		@include m.media-breakpoint-down(s) {
+			grid-column: unset;
+			margin-top: 20px;
+		}
+	}
+
+	&__table {
+		margin-top: 40px;
+		margin-bottom: 40px;
+
+		@include m.media-breakpoint-down(s) {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		th:not(#{$root}__subTitle) {
+			display: inline-block;
+			margin-bottom: 1rem;
+		}
+
+		td {
+			display: inline-block;
+			margin-bottom: 1rem;
+			padding-left: 60px;
+		}
+	}
+
+	&__subTitle {
+		@include t.h2;
+
+		padding-bottom: 2rem;
+		text-align: left;
+
+		@include m.media-breakpoint-down(s) {
+			padding-bottom: 1rem;
+		}
+	}
 }

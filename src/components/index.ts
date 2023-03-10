@@ -33,3 +33,4 @@ export { ProductDetails } from './sections/ProductDetails';
 export { Footer } from './base/Footer';
 export { Header } from './base/Header';
 export { Layout } from './base/Layout';
+export { ErrorComponent } from './base/ErrorComponent/ErrorComponent';

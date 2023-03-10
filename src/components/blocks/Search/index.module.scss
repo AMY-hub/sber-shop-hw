@@ -13,11 +13,11 @@
 		transition: background-color var(--base-transition-time);
 		border: 1px solid var(--bg1);
 		border-radius: var(--button-border-radius);
-		color: #fff;
+		color: #FFF;
 		caret-color: var(--bg1);
 
 		&:focus {
-			background-color: rgba(#fff, 0.1);
+			background-color: rgba(#FFF, 0.1);
 		}
 
 		&::placeholder {
@@ -31,10 +31,10 @@
 
 	&__btns {
 		display: flex;
-		justify-content: flex-end;
-		align-items: center;
 		position: absolute;
 		right: 1.5rem;
+		align-items: center;
+		justify-content: flex-end;
 		width: 2.5rem;
 		height: 100%;
 		padding: 0;
@@ -60,7 +60,7 @@
 		}
 
 		&_disabled svg {
-			fill: rgba(#fff, 0.3);
+			fill: rgba(#FFF, 0.3);
 		}
 	}
 

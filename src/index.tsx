@@ -1,18 +1,60 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App/App';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import { ErrorComponent, Layout } from './components';
 import { ContextProvider } from './context/AppContext';
+import { productLoader, ProductPage } from './pages/ProductPage/ProductPage';
+import { ErrorPage } from './pages/ErrorPage/ErrorPage';
+import { CatalogPage } from './pages/CatalogPage/CatalogPage';
+import { UI } from './pages/Ui-kit/Ui-kit';
+import { MainPage } from './pages/MainPage/MainPage';
 
-import './index.css';
+import './styles/base.scss';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        element: <MainPage />,
+        index: true
+      },
+      {
+        element: <CatalogPage />,
+        path: '/products'
+      },
+      {
+        path: '/products/:id',
+        loader: productLoader,
+        element: <ProductPage />
+      }
+    ]
+  },
+  {
+    path: '/ui-kit',
+    element: <UI />
+  },
+  {
+    path: '*',
+    element: <ErrorComponent code={404} />
+  }
+]);
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
     <ContextProvider>
-      <App />      
-    </ContextProvider>
+      <RouterProvider router={router} />
+    </ContextProvider>    
   </React.StrictMode>
 );
 

@@ -1,0 +1,32 @@
+@use "../../../styles/mixins"as m;
+
+.notfound {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+
+	&__title {
+		margin-bottom: 0.5rem;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	&__text {
+		font-size: 0.8rem;
+		text-align: center;
+	}
+
+	&__icon {
+		width: 20%;
+		height: 20%;
+		opacity: 0.5;
+		fill: var(--primary-pale);
+
+		@include m.media-breakpoint-down(sm) {
+			width: 7rem;
+			height: 7rem;
+		}
+	}
+}

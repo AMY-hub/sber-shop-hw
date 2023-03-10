@@ -1,0 +1,73 @@
+@use "../../../styles/mixins"as m;
+
+.header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	width: 100%;
+	margin-bottom: -10rem;
+	padding-top: 2rem;
+	padding-right: var(--section-right);
+	padding-bottom: 12rem;
+	padding-left: var(--section-left);
+	background-color: var(--primary);
+	color: var(--text-light);
+
+	&__logo {
+		grid-row: span 2;
+		align-self: center;
+
+		@include m.media-breakpoint-down(sm) {
+			grid-row: 1;
+		}
+	}
+
+	&__user {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		align-self: baseline;
+		justify-content: flex-end;
+		height: 100%;
+		margin-bottom: 0.8rem;
+
+		@include m.media-breakpoint-up(sm) {
+			padding-bottom: 0.6rem;
+		}
+
+		@include m.media-breakpoint-down(s) {
+			max-width: 300px;
+			font-size: 0.9rem;
+			text-align: right;
+		}
+
+		@include m.media-breakpoint-down(xs) {
+			max-width: 200px;
+			font-size: 0.75rem;
+		}
+	}
+
+	&__userName {
+		display: inline-block;
+		font-weight: 600;
+	}
+
+	&__userBtn {
+		margin-top: 15px;
+		margin-bottom: 15px;
+		padding: 4px;
+	}
+
+	&__search {
+		grid-column: 2;
+		max-width: 300px;
+		justify-self: flex-end;
+
+		@include m.media-breakpoint-down(sm) {
+			grid-column: span 2;
+			width: 100%;
+			max-width: unset;
+			margin-top: 1.5rem;
+		}
+	}
+}

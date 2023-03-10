@@ -1,0 +1,72 @@
+.preloader {
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	&__loader {
+		display: flex;
+		height: 3rem;
+	}
+
+	&__text {
+		margin: 0;
+		padding-bottom: 1rem;
+		color: #23201F;
+		font-size: 1.5rem;
+		line-height: 1.5;
+	}
+
+	&__icon {
+		width: 1.2rem;
+		height: 1.2rem;
+		margin-right: 1rem;
+		transform: rotate(90deg);
+		animation: step 500ms linear forwards;
+		opacity: 0;
+		fill: #23201F;
+
+		&:nth-child(even) {
+			align-self: flex-end;
+		}
+
+		&:nth-child(2) {
+			animation-delay: 0.4s;
+		}
+
+		&:nth-child(3) {
+			animation-delay: 0.8s;
+		}
+
+		&:nth-child(4) {
+			animation-delay: 1.2s;
+		}
+
+		&:nth-child(5) {
+			animation-delay: 1.6s;
+		}
+
+		&:nth-child(6) {
+			animation-delay: 2s;
+		}
+
+		&:nth-child(7) {
+			animation-delay: 2.4s;
+		}
+	}
+}
+
+@keyframes step {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

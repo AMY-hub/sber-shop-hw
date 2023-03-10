@@ -1,0 +1,59 @@
+@use "../../../styles/typografy"as t;
+@use "../../../styles/mixins"as m;
+
+.review {
+	position: relative;
+	padding-bottom: 1rem;
+
+	&::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 80%;
+		height: 2px;
+		margin: auto;
+		opacity: 0.1;
+		background-color: var(--secondary-dark);
+	}
+
+	&:last-child::after {
+		display: none;
+	}
+
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: flex-start;
+		margin-bottom: 0.5rem;
+
+		@include m.media-breakpoint-down(sm) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&__author {
+		@include t.h3;
+
+		margin-right: 0.5rem;
+		color: var(--text-dark);
+
+		@include m.media-breakpoint-down(sm) {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	&__date {
+		@include t.text2;
+
+		color: var(--text-pale);
+	}
+
+	&__text {
+		margin-top: 1rem;
+		color: var(--text-dark);
+	}
+}

@@ -1,0 +1,45 @@
+@use "../../../styles/mixins"as m;
+
+.panel {
+	border-radius: var(--button-border-radius);
+	background-color: var(--primary-light);
+
+	&__wrapper {
+		display: flex;
+		position: relative;
+		align-items: center;
+	}
+
+	&__activeBg {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		height: 100%;
+		transition:
+			opacity var(--base-transition-time),
+			transform var(--base-transition-time);
+		border-radius: var(--button-border-radius);
+		opacity: 0;
+		background-color: var(--secondary);
+	}
+
+	&__btn {
+		position: relative;
+		z-index: 2;
+		padding: 0.8rem 1.2rem;
+		transition: color var(--base-transition-time);
+		border-radius: var(--button-border-radius);
+		color: var(--text-dark);
+		font-weight: 600;
+		line-height: 1.5;
+
+		&_active {
+			color: var(--text-light);
+		}
+
+		@include m.media-breakpoint-down(s) {
+			padding: 0.5rem 0.8rem;
+		}
+	}
+}

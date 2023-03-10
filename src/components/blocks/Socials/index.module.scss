@@ -1,0 +1,23 @@
+.socials {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	gap: 14px;
+
+	&__link {
+		display: flex;
+		transition: opacity 0.3s;
+		opacity: 0.6;
+
+		svg {
+			fill: var(--text-light);
+		}
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+@use "../../../styles/mixins"as m;
+
+.catalog {
+	padding-right: var(--section-right);
+	padding-bottom: var(--section-bottom);
+	padding-left: var(--section-left);
+
+	&__panel {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		@include m.media-breakpoint-down(s) {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&__search {
+		max-width: 300px;
+
+		@include m.media-breakpoint-down(s) {
+			margin-bottom: 2rem;
+		}
+	}
+}

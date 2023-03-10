@@ -1,0 +1,88 @@
+@use "../../../styles/mixins"as m;
+@use "../../../styles/variables.scss"as f;
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: f.vw(50, xs);
+	margin-right: 20px;
+	margin-left: 20px;
+
+	@include m.media-breakpoint-down(s) {
+		margin-top: f.vw(45, s);
+	}
+
+	@include m.media-breakpoint-down(md) {
+		margin-top: f.vw(45, md);
+	}
+
+	@include m.media-breakpoint-down(xl) {
+		margin-top: f.vw(45, xl);
+	}
+
+	@include m.media-breakpoint-down(xxl) {
+		margin-top: f.vw(45, xxl);
+	}
+
+	@include m.media-breakpoint-down(fhd) {
+		margin-top: f.vw(50);
+	}
+
+	&__page {
+		position: relative;
+		margin: 0.5rem;
+		padding: 0.2rem 0.5rem;
+		transition: background-color 300ms;
+		border: none;
+		border-radius: 5px;
+		color: var(--text-dark);
+		font-size: 1.3rem;
+		font-weight: 500;
+		cursor: pointer;
+
+		@include m.hover {
+			color: var(--primary);
+		}
+
+		&_active {
+			color: var(--primary);
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 10%;
+				width: 80%;
+				height: 1px;
+				background-color: var(--primary);
+			}
+		}
+
+		@include m.media-breakpoint-down(s) {
+			margin: 0.3rem;
+		}
+	}
+
+	&__next,
+	&__prev {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		background-color: transparent;
+		cursor: pointer;
+
+		svg {
+			width: 1.5rem;
+			height: 1.5rem;
+			stroke: #000;
+		}
+
+		&:disabled {
+			svg {
+				opacity: 0.3;
+			}
+		}
+	}
+}
